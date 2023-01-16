@@ -5,53 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <style>
-      body {
-        background-color: #f2f2f2;
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
-
-      #weather {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        text-align: center;
-      }
-
-      #weather h2 {
-        margin-top: 0;
-      }
-
-      form {
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      label {
-        font-weight: bold;
-        margin-right: 10px;
-      }
-
-      input {
-        padding: 5px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-      }
-
-      button {
-        padding: 5px 10px;
-        border-radius: 5px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        margin-left: 10px;
-        cursor: pointer;
-      }
-      h1 {
-        text-align: center;
-      }
-    </style>
   </head>
   <body>
     <h1>Weather App</h1>
@@ -63,30 +16,3 @@
     </form>
   </body>
 </html>
-
-<script>
-  const API_KEY = "4d8fb5b93d4af21d66a2948710284366";
-  const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=`;
-
-  async function getWeather(city) {
-    const response = await fetch(`${API_URL}${city}&appid=${API_KEY}`);
-    const data = await response.json();
-    return data;
-  }
-
-  function displayWeather(weatherData) {
-    const weatherContainer = document.querySelector("#weather");
-    weatherContainer.innerHTML = `
-    <h2>Weather in ${weatherData.name}</h2>
-    <p>Temperature: ${weatherData.main.temp}°F</p>
-    <p>Weather: ${weatherData.weather[0].description}</p>
-  `;
-  }
-
-  const searchButton = document.querySelector("#search-button");
-  searchButton.addEventListener("click", async () => {
-    const city = document.querySelector("#city").value;
-    const weatherData = await getWeather(city);
-    displayWeather(weatherData);
-  });
-</script>

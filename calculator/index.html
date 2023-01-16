@@ -5,47 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Calculator</title>
-    <style>
-      h1 {
-        text-align: center;
-      }
-      #calculator {
-        width: 17vw;
-        height: 40vh;
-        margin: auto;
-        background-color: #333333;
-        color: white;
-        font-size: 24px;
-        padding: 20px;
-        border-radius: 10px;
-      }
-
-      #display {
-        width: 100%;
-        height: 50px;
-        font-size: 36px;
-        text-align: right;
-        background-color: #222222;
-        color: white;
-        border: none;
-      }
-
-      #buttons {
-        width: 100%;
-        height: 240px;
-      }
-
-      button {
-        width: 54px;
-        height: 40px;
-        font-size: 24px;
-        margin: 10px;
-        border-radius: 5px;
-        background-color: #444444;
-        color: white;
-        border: none;
-      }
-    </style>
   </head>
   <body>
     <h1>Simple Calculator</h1>
@@ -79,32 +38,3 @@
     </div>
   </body>
 </html>
-
-<script>
-  function appendToDisplay(val) {
-    document.getElementById("display").value += val;
-  }
-
-  function clearDisplay() {
-    document.getElementById("display").value = "";
-  }
-
-  function changeSign() {
-    let display = document.getElementById("display").value;
-    let newDisplay = "";
-    if (display[0] === "-") {
-      for (let i = 1; i < display.length; i++) {
-        newDisplay += display[i];
-      }
-      document.getElementById("display").value = newDisplay;
-    } else {
-      document.getElementById("display").value = "-" + display;
-    }
-  }
-
-  function evaluateExpression() {
-    let display = document.getElementById("display").value;
-    let newDisplay = eval(display);
-    document.getElementById("display").value = newDisplay;
-  }
-</script>
